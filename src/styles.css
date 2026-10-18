@@ -7,6 +7,9 @@ button, input { font: inherit; }
 h1 { margin: 0; font-size: var(--font-size-heading); }
 .chat-header p { margin: var(--space-2) 0 var(--space-stack); color: var(--color-text-muted); }
 .toolbar { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.learning-links { display: flex; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-3) var(--space-panel); border-bottom: var(--border-width) solid var(--color-border); }
+.learning-links a { color: var(--color-text); text-underline-offset: var(--space-1); }
+.learning-links a:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
 .button { border: var(--border-width) solid transparent; border-radius: var(--radius-control); padding: var(--space-control-block) var(--space-control-inline); min-height: var(--control-min-height); cursor: pointer; font-weight: var(--font-weight-strong); }
 .button--primary { background: var(--color-action); color: var(--color-on-action); }
 .button--primary:hover { background: var(--color-action-hover); }

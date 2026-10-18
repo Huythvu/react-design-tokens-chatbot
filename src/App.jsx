@@ -20,6 +20,10 @@ export default function App() {
           <Button variant="secondary" onClick={() => setMessages([welcome])}>Ny samtale</Button>
         </div>
       </header>
+      <nav className="learning-links" aria-label="React-demonstrationer">
+        <a href="?slide=6">Slide 6: Primitive og semantiske tokens</a>
+        <a href="?slide=7">Slide 7: Token-kæden i React</a>
+      </nav>
       <p className="notice">Undervisningsdemo med faste svar. Skriv fx “Hvad er tokens?”</p>
       <div className="messages" role="log" aria-label="Samtale" aria-live="polite" aria-relevant="additions">
         {messages.map(message => <Message key={message.id} {...message} />)}

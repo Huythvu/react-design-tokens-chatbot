@@ -4,6 +4,7 @@ import './token-types-slide.css';
 export default function TokenTypesSlide() {
   const [jade, setJade] = useState('#3a646d');
   return <main className="token-slide" style={{ '--jade-600': jade }}>
+    <a href="?">Tilbage til chatbotten</a>
     <h1>Primitive og semantiske tokens</h1>
     <div className="token-slide-columns">
       <section>
