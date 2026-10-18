@@ -64,13 +64,44 @@ Eksempel på strukturen, som I selv udvider:
 
 **Udfordring:** En ny udvikler skal kunne vælge rigtigt uden at spørge jer.
 
-1. Lav en lille `TokenPreview`-komponent, der viser jeres semantiske farver som tekst/baggrund-par, afstandsskala og afrundinger. Brug de faktiske CSS-variabler, så visningen følger ændringer automatisk.
-2. Dokumenter mindst fem semantiske tokens: navn, anvendelse og ét eksempel på forkert anvendelse. Forklar også, hvornår en ny token er berettiget.
-3. Lad makkeren style et lille informationspanel ud fra dokumentationen uden at opfinde nye farver.
+**Det skal I bygge:** Et lille visuelt katalog over jeres designvalg. Vi kalder React-komponenten `TokenPreview`. Navnet betyder “forhåndsvisning af tokens”; komponenten findes ikke i React i forvejen. I skal selv oprette den.
+
+Kataloget hjælper en ny udvikler med at se, hvilke tokens der findes, hvordan de ser ud, og hvornår de skal bruges.
+
+1. Opret `TokenPreview.jsx`, og vis komponenten et sted i jeres app, fx under chatbotten. I eget projekt kan I vælge en tilsvarende placering.
+2. Vis følgende eksempler med de tokens, I har oprettet:
+   - **Farver:** Et felt med rigtig tekst og baggrund. Skriv tokennavnene ved siden af, fx `--color-text` og `--color-surface`. Vis også et andet relevant farvepar, fx en handlingsknap og dens tekst.
+   - **Afstande:** Tre bokse med forskellig indvendig afstand fra jeres skala, fx `--space-2`, `--space-4` og `--space-6`. Skriv navnet på hver token, så forskellen er let at sammenligne.
+   - **Afrunding:** Bokse med jeres forskellige radius-tokens. Skriv også her tokennavnene.
+3. Brug `var(--...)` i eksemplernes CSS. Farvefeltet må altså ikke få en manuelt kopieret hexværdi; det skal bruge den samme token som appen.
+4. Skriv en kort vejledning til mindst fem **semantiske** tokens: navn, hvad den bruges til, og et eksempel på forkert brug. Fx: `--color-text` bruges til almindelig tekst, ikke som baggrundsfarve. Forklar også, hvornår teamet må oprette en ny token. Har I endnu ikke fem, så aftal relevante roller ud fra den eksisterende side.
+5. Lad makkeren bygge et lille informationspanel ved hjælp af kataloget og vejledningen uden at opfinde nye farver.
+
+**Lille React-eksempel til at komme i gang:** Tilpas navnene til jeres egen tokenfil, og udvid derefter med afstande og afrundinger.
+
+```jsx
+export function TokenPreview() {
+  return (
+    <section>
+      <h2>Vores design tokens</h2>
+      <p>Tekst: --color-text. Baggrund: --color-surface.</p>
+      <div style={{
+        color: 'var(--color-text)',
+        background: 'var(--color-surface)',
+        padding: 'var(--space-4)',
+      }}>
+        Sådan ser almindelig tekst på vores overflade ud.
+      </div>
+    </section>
+  );
+}
+```
+
+Vis den ved at importere komponenten i `App.jsx` og indsætte `<TokenPreview />` **inde i den wrapper, der definerer jeres semantiske tokens**, fx `.app`. Så kan forhåndsvisningen arve værdierne.
 
 **Aflever:** En visuel tokenoversigt og en kort tokenvejledning i Markdown.
 
-**Tjek:** Ændr en tokenværdi. Opdateres både oversigten og komponenterne? Kunne makkeren vælge tokens uden hjælp? Layoutværdier må gerne være lokale; begrund, hvad I vælger at dele.
+**I er færdige, når:** Tokennavnene står ved de visuelle eksempler, alle eksempler bruger jeres faktiske tokens, og makkeren kan vælge tokens ud fra vejledningen. Lad fx en semantisk farvetoken pege på en anden eksisterende primitiv token: Både kataloget og appen skal følge med. Behold palettens navne og værdier meningsfulde; lad ikke en grøn primitiv token skifte til sort. Temaer er ikke nødvendige for at løse denne opgave. Layoutværdier må gerne være lokale; begrund, hvad I vælger at dele.
 
 ## 2 · To udviklere, samme chatbot (10.00–10.25)
 
