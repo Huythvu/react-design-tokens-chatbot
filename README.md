@@ -1,5 +1,28 @@
 # Design tokens i React · Token-chatten
 
+## Denne branch: Kun tokens
+
+Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og intet temaskift eller kompakt visning endnu.
+
+- `src/tokens.css`: Primitive værdier og semantiske roller.
+- `src/styles.css`: Komponenternes CSS bruger de fælles tokens.
+- `src/main.jsx`: Importerer tokens før komponenternes styles.
+
+Sammenlign med [startkoden på main](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/main). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
+
+Hent denne version med:
+
+```sh
+git clone --branch tokens-solution https://github.com/h-oellgaard/react-design-tokens-chatbot.git
+cd react-design-tokens-chatbot
+npm ci
+npm start
+```
+
+I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `tokens-solution`.
+
+Nedenstående beskriver det samlede undervisningsforløb. Øvelsernes temaskift er næste trin, ikke en funktion i denne version.
+
 PBA Webudvikling · EAAA · 8.15–11.30
 
 **Hvordan holder vi et design sammenhængende, når 10 udviklere eller AI-agenter arbejder på samme projekt?**
@@ -61,9 +84,9 @@ Hver kodeøvelse har også et valgfrit **Level 2** til de hurtige: en visuel tok
 - `src/styles.css`: Start-CSS med bevidst gentagne og forskellige designværdier.
 - `src/main.jsx`: Startpunkt og CSS-imports.
 
-Knapperne **Mørkt tema** og **Kompakt** ændrer allerede React-state og data-attributter. I startversionen ændrer de ikke udseendet. Det implementerer I med tokens og CSS i øvelserne.
+På `main` findes knapperne **Mørkt tema** og **Kompakt** som forberedelse til senere øvelser. I denne token-version er de fjernet, så fokus er på fælles designbeslutninger.
 
-Løsningsforslaget og undervisernoterne er ikke en del af dette repository.
+Denne branch indeholder token-løsningen. Undervisernoterne er ikke en del af repositoryet.
 
 ## Afgrænsning
 

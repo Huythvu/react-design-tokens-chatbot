@@ -13,8 +13,6 @@ function replyTo(text) {
 
 export default function App() {
   const [messages, setMessages] = useState([welcome]);
-  const [theme, setTheme] = useState('light');
-  const [compact, setCompact] = useState(false);
 
   function send(text) {
     setMessages(current => [...current,
@@ -23,13 +21,11 @@ export default function App() {
     ]);
   }
 
-  return <main className="app" data-theme={theme} data-density={compact ? 'compact' : 'comfortable'}>
+  return <main className="app">
     <section className="chat" aria-labelledby="chat-title">
       <header className="chat-header">
         <div><h1 id="chat-title">Token-chatten</h1><p>Fælles beslutninger. Sammenhængende design.</p></div>
         <div className="toolbar">
-          <Button variant="secondary" aria-pressed={theme === 'dark'} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Mørkt tema</Button>
-          <Button variant="secondary" aria-pressed={compact} onClick={() => setCompact(!compact)}>Kompakt</Button>
           <Button variant="secondary" onClick={() => setMessages([welcome])}>Ny samtale</Button>
         </div>
       </header>
