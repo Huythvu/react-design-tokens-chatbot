@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Message, Composer } from './components.jsx';
 import { welcome, replyTo } from './replies.js';
 
 export default function App() {
   const [messages, setMessages] = useState([welcome]);
   const [theme, setTheme] = useState('light');
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    const log = messagesRef.current;
+    if (log) log.scrollTop = log.scrollHeight;
+  }, [messages]);
 
   function send(text) {
     setMessages(current => [...current,
@@ -42,7 +48,7 @@ export default function App() {
         <a href="?slide=7">Slide 7: Token-kæden i React</a>
       </nav>
       <p className="notice">Undervisningsdemo med faste svar. Skriv fx “Hvad er tokens?”</p>
-      <div className="messages" role="log" aria-label="Samtale" aria-live="polite" aria-relevant="additions">
+      <div ref={messagesRef} className="messages" role="log" aria-label="Samtale" aria-live="polite" aria-relevant="additions">
         {messages.map(message => <Message key={message.id} {...message} />)}
       </div>
       <Composer onSend={send} />
