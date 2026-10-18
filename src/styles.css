@@ -7,6 +7,8 @@ button, input { font: inherit; }
 h1 { margin: 0; font-size: var(--font-size-heading); }
 .chat-header p { margin: var(--space-2) 0 var(--space-stack); color: var(--color-text-muted); }
 .toolbar { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.theme-button-content { display: inline-flex; align-items: center; gap: var(--space-2); }
+.theme-icon { display: block; width: var(--icon-size-control); height: var(--icon-size-control); flex-shrink: 0; }
 .learning-links { display: flex; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-3) var(--space-panel); border-bottom: var(--border-width) solid var(--color-border); }
 .learning-links a { color: var(--color-text); text-underline-offset: var(--space-1); }
 .learning-links a:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }

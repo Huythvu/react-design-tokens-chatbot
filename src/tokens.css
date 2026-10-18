@@ -13,6 +13,7 @@
   --font-weight-strong: 600; --line-height-body: 1.5;
   --border-width: 1px; --focus-width: 3px; --focus-offset: 3px;
   --control-min-height: 2.75rem; --layout-chat-width: 50rem; --layout-log-height: 27.5rem;
+  --icon-size-control: 1.25rem;
 }
 
 /* Semantiske tokens: rollerne i vores UI. */

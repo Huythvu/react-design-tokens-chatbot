@@ -18,8 +18,21 @@ export default function App() {
       <header className="chat-header">
         <div><h1 id="chat-title">Token-chatten</h1><p>Fælles beslutninger. Sammenhængende design.</p></div>
         <div className="toolbar">
-          <Button variant="secondary" onClick={() => setTheme(current => current === 'light' ? 'dark' : 'light')}>
-            Skift til {theme === 'light' ? 'mørkt' : 'lyst'} tema
+          <Button
+            variant="secondary"
+            aria-label={`Skift til ${theme === 'light' ? 'mørkt' : 'lyst'} tema`}
+            title={`Skift til ${theme === 'light' ? 'mørkt' : 'lyst'} tema`}
+            onClick={() => setTheme(current => current === 'light' ? 'dark' : 'light')}
+          >
+            <span className="theme-button-content">
+              <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+                {theme === 'light' ? <>
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                </> : <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1 9 9 0 1 0 20.9 13.1Z" />}
+              </svg>
+              {theme === 'light' ? 'Lyst' : 'Mørkt'}
+            </span>
           </Button>
           <Button variant="secondary" onClick={() => setMessages([welcome])}>Ny samtale</Button>
         </div>
