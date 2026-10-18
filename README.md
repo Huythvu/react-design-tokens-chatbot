@@ -44,6 +44,8 @@ Følg afsnittene **Eget projekt** i øvelsesarket. Har I allerede tokens og et k
 
 Åbn **[øvelsesarket](Oevelser.md)**. Begge spor har samme læringsmål:
 
+Brug også **[Token-cheat-sheet](Token-cheat-sheet.md)** med danske forklaringer, Atlassian-tokennavne og React/CSS-eksempler.
+
 1. Brain starter: Én besked, mange knapper.
 2. Saml designbeslutninger i primitive og semantiske tokens.
 3. Byg to komponenter med fælles tokens og en arbejdsaftale.
