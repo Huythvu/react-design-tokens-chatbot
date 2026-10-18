@@ -30,7 +30,21 @@ Tal også om grænsen: Tokens kan koordinere udseendet, men afgør ikke, hvor kn
 
 **Problem:** Flere har stylet chatbotten. Knapper og beskeder bruger forskellige afrundinger, og farver og afstande gentages.
 
-**Eget projekt:** Find tilsvarende gentagelser og variationer i jeres eksisterende styles. Arbejd i projektets nuværende struktur; I skal ikke flytte alt til én CSS-fil. Bruger I allerede tokens eller et komponentbibliotek, kortlæg og genbrug dem først. Vælg derefter lokale værdier, der bør kobles på det fælles system.
+**Eget projekt:** Find gentagne værdier og forskelle i jeres eksisterende styles. Fx bruger flere knapper måske samme blå farve, mens to knapper med samme funktion utilsigtet har forskellig afrunding. Aftal, hvilke designvalg der skal være fælles; forskellige komponenter behøver ikke se ens ud.
+
+**`tokens.css` er fælles: Single source of truth.** Saml de fælles designbeslutninger i denne fil. Mange komponenter og deres forskellige CSS-filer kan bruge de samme tokens gennem `var(--...)`. Ændrer I en fælles token, følger alle de steder, der bruger den, med. I skal altså ikke kopiere tokenværdier ind i hver komponentfil.
+
+I behøver ikke samle al styling i én CSS-fil. Behold fx `Button.css` og `Card.css` til komponenternes layout og styling; lad dem hente fælles farver, afstande og afrundinger fra `tokens.css`.
+
+```text
+tokens.css  → fælles tokennavne og værdier
+Button.css  → bruger tokens med var(--...)
+Card.css    → bruger de samme fælles tokens
+```
+
+Importer `tokens.css` én gang ved appens start, fx i `main.jsx`. De komponenter, der skal bruge variablerne, skal ligge under det element, hvor de er defineret: `:root` gør dem tilgængelige via arv på hele HTML-siden; `.app` afgrænser dem til appens efterkommere. En lokal overskrivning kan ændre værdien inden for et mindre område.
+
+Bruger I allerede tokens eller et komponentbibliotek, så undersøg først, hvilke fælles designvalg og temamuligheder der findes. Genbrug eller tilpas det eksisterende system frem for at lave en konkurrerende tokenfil. Find derefter lokale, faste værdier i jeres egen styling, der bør bruge systemets fælles tokens. Vælg efter funktion, ikke kun fordi to farver ser ens ud.
 
 1. Åbn `src/styles.css`. Find mindst tre gentagne værdier og to inkonsekvente valg.
 2. Opret `src/tokens.css`, og importer den før `styles.css` i `main.jsx`.
