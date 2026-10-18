@@ -8,7 +8,22 @@ I arbejder med fælles tokens, komponenter, temaer og aftaler om samarbejde. Ing
 
 ## A · Brug denne React-template
 
-Vælg **Code → Download ZIP** på GitHub, og udpak projektet. I kan også forke eller klone repositoryet, hvis I vil gemme jeres arbejde på GitHub.
+Vælg **Code → Download ZIP** på GitHub, og udpak projektet, eller klon det med Git som beskrevet nedenfor.
+
+### Klon projektet med Git
+
+I skal have Git installeret. Åbn en terminal i den mappe, hvor I vil placere projektet, og kør:
+
+```sh
+git clone https://github.com/h-oellgaard/react-design-tokens-chatbot.git
+cd react-design-tokens-chatbot
+```
+
+Nu har I en lokal kopi af projektet. Åbn mappen i jeres editor, fx med `code .`, hvis I bruger VS Code og har kommandoen installeret.
+
+Vil I gemme jeres ændringer på jeres egen GitHub-konto, skal I først vælge **Use this template → Create a new repository** eller **Fork** på GitHub og derefter klone URL'en til jeres egen kopi. At klone dette repository giver ikke skriveadgang til det.
+
+### Installer og start
 
 Åbn projektmappen i jeres editor. Brug Node.js 22.12+ eller en nyere understøttet LTS-version:
 
