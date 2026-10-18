@@ -46,11 +46,18 @@ Importer `tokens.css` én gang ved appens start, fx i `main.jsx`. De komponenter
 
 Bruger I allerede tokens eller et komponentbibliotek, så undersøg først, hvilke fælles designvalg og temamuligheder der findes. Genbrug eller tilpas det eksisterende system frem for at lave en konkurrerende tokenfil. Find derefter lokale, faste værdier i jeres egen styling, der bør bruge systemets fælles tokens. Vælg efter funktion, ikke kun fordi to farver ser ens ud.
 
-1. Åbn `src/styles.css`. Find mindst tre gentagne værdier og to inkonsekvente valg.
+1. Åbn `src/styles.css`. Find gentagne værdier og inkonsekvente valg.
 2. Opret `src/tokens.css`, og importer den før `styles.css` i `main.jsx`.
 3. Aftal en lille skala for farver, afstande og afrunding. Opret primitive tokens, fx `--blue-600`, `--space-3` og `--radius-small`.
 4. Opret semantiske tokens, fx `--color-text`, `--color-surface`, `--color-action` og `--radius-control`.
 5. Brug semantiske farvetokens i komponenternes CSS. Brug skalaen til gentagne afstande. Ensret afrunding, hvor det giver mening.
+
+**Hvad skal I kigge efter?**
+
+- **Gentagne værdier:** Den samme konkrete CSS-værdi står flere steder. Fx bruges `#2457d6` som baggrund på både Send-knappen og brugerens besked, og `#ffffff` bruges som tekstfarve på begge. Det er ikke nødvendigvis en fejl. Undersøg, om stederne deler en designbeslutning, som kan få et fælles tokennavn. To ens værdier kan også have forskellige formål og derfor kræve forskellige semantiske tokens.
+- **Inkonsekvente valg:** Elementer, der efter jeres designaftale burde følge samme regel, bruger forskellige værdier. I startkoden har den primære knap fx `border-radius: 8px`, mens den sekundære knap har `border-radius: 5px`. Hvis begge skal have samme form, er det en inkonsistens, som et fælles `--radius-control` kan rette.
+
+I skal altså undersøge **hvad der går igen**, og **hvad der varierer uden en god grund**. Forskellige værdier er ikke automatisk forkerte: En overskrift og en hjælpetekst kan med god grund have forskellige skriftstørrelser. Begrund, hvilke forskelle I beholder, og hvilke I ensretter.
 
 Eksempel på strukturen, som I selv udvider:
 
