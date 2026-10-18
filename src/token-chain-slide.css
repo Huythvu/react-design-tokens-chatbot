@@ -1,5 +1,4 @@
 .token-chain {
-  --jade-600: #3a646d;
   --color-action: var(--jade-600);
   --color-on-action: #ffffff;
 }

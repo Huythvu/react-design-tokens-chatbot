@@ -4,9 +4,9 @@
 
 ### Slide 6 som React-komponent
 
-Chatbotforsiden har links til begge kodeillustrationer. Slide 7 (`?slide=7`) viser kæden React-komponent, CSS-klasse, semantisk token, primitiv token og farveværdi. Skift den primitive værdi og prøv Send-knappen. Komponenten findes i `src/TokenChainSlide.jsx`.
+Chatbotforsiden har links til begge kodeillustrationer. Slide 7 (`?slide=7`) viser kæden React-komponent, CSS-klasse, semantisk token, primitiv token og farveværdi. Lad `--color-action` referere til enten `--jade-600` eller `--neutral-800`, og prøv Send-knappen. Begge primitive tokens beholder deres faste værdier. Komponenten findes i `src/TokenChainSlide.jsx`.
 
-Start appen, og tilføj `?slide=6` til den lokale adresse (fx `http://localhost:5173/?slide=6`). `src/TokenTypesSlide.jsx` viser primitive og semantiske tokens med et farvevalg, der opdaterer knappen gennem tokenreferencer. Dette ændrer en primitiv værdi; det implementerer ikke et temaskift. Knappen Send er en visuel demonstration.
+Start appen, og tilføj `?slide=6` til den lokale adresse (fx `http://localhost:5173/?slide=6`). `src/TokenTypesSlide.jsx` viser primitive og semantiske tokens med et valg af den primitive token, som `--color-action` refererer til. `--jade-600` er altid `#3a646d`, og `--neutral-800` er altid `#182230`. Knappen Send er en visuel demonstration. Dette er ikke et komplet temaskift.
 
 Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og intet temaskift eller kompakt visning endnu.
 

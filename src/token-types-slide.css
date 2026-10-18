@@ -1,5 +1,6 @@
 .token-slide {
   --jade-600: #3a646d;
+  --neutral-800: #182230;
   --space-4: 1rem;
   --color-action: var(--jade-600);
   --space-panel: var(--space-4);
