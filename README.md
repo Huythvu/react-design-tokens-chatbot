@@ -1,6 +1,6 @@
 # Design tokens i React · Token-chatten
 
-## Main: Chatbot med tokens
+## Theme: Chatbot med lyst og mørkt tema
 
 ### Slide 6 som React-komponent
 
@@ -8,27 +8,27 @@ Chatbotforsiden har links til begge kodeillustrationer. Slide 7 (`?slide=7`) vis
 
 Start appen, og tilføj `?slide=6` til den lokale adresse (fx `http://localhost:5173/?slide=6`). `src/TokenTypesSlide.jsx` viser primitive og semantiske tokens med et valg af den primitive token, som `--color-action` refererer til. `--jade-600` er altid `#3a646d`, og `--neutral-800` er altid `#182230`. Knappen Send er en visuel demonstration. Dette er ikke et komplet temaskift.
 
-Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og intet temaskift eller kompakt visning endnu.
+Branchen theme bygger videre på main med et lyst og et mørkt tema. Brug knappen i toppen til at skifte. React-state sætter data-theme på .app, og CSS ændrer kun de semantiske tokenreferencer. De primitive farveværdier forbliver faste. Kompakt visning er ikke implementeret.
 
 - `src/tokens.css`: Primitive værdier og semantiske roller.
 - `src/styles.css`: Komponenternes CSS bruger de fælles tokens.
 - `src/main.jsx`: Importerer tokens før komponenternes styles.
 - `src/replies.js`: Faste demosvar med et React-kodeeksempel i hvert svar, også velkomst og standardsvar. Koden vises som tekst og bliver ikke eksekveret.
 
-Sammenlign med [startkoden på starter](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/starter). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
+Sammenlign med [startkoden på starter](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/starter). Sammenlign med main for versionen med tokens uden temaskift. Denne branch tilføjer temaskift, men ikke ekstra øvelseskomponenter.
 
 Hent denne version med:
 
 ```sh
-git clone --branch main https://github.com/h-oellgaard/react-design-tokens-chatbot.git
+git clone --branch theme https://github.com/h-oellgaard/react-design-tokens-chatbot.git
 cd react-design-tokens-chatbot
 npm ci
 npm start
 ```
 
-I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `main`.
+I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `theme`.
 
-Nedenstående beskriver det samlede undervisningsforløb. Øvelsernes temaskift er næste trin, ikke en funktion i denne version.
+Nedenstående beskriver det samlede undervisningsforløb. Denne branch viser tokens og temaskift. Øvelse 2-komponenterne og kompakt visning er stadig elevopgaver.
 
 PBA Webudvikling · EAAA · 8.15–11.30
 
@@ -93,7 +93,7 @@ Hver kodeøvelse har også et valgfrit **Level 2** til de hurtige: en visuel tok
 - `src/styles.css`: Start-CSS med bevidst gentagne og forskellige designværdier.
 - `src/main.jsx`: Startpunkt og CSS-imports.
 
-På `starter` findes knapperne **Mørkt tema** og **Kompakt** som forberedelse til senere øvelser. I denne token-version er de fjernet, så fokus er på fælles designbeslutninger.
+På theme er temaskift implementeret. Samtalen og skrivefeltets indhold bevares under skiftet. Temaet starter lyst ved genindlæsning. Kodede demonstrationer via ?slide=6 og ?slide=7 har deres eget faste undervisningsdesign.
 
 Denne branch indeholder token-løsningen. Undervisernoterne er ikke en del af repositoryet.
 

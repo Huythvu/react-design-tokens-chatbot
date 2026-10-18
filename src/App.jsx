@@ -4,6 +4,7 @@ import { welcome, replyTo } from './replies.js';
 
 export default function App() {
   const [messages, setMessages] = useState([welcome]);
+  const [theme, setTheme] = useState('light');
 
   function send(text) {
     setMessages(current => [...current,
@@ -12,11 +13,14 @@ export default function App() {
     ]);
   }
 
-  return <main className="app">
+  return <main className="app" data-theme={theme}>
     <section className="chat" aria-labelledby="chat-title">
       <header className="chat-header">
         <div><h1 id="chat-title">Token-chatten</h1><p>Fælles beslutninger. Sammenhængende design.</p></div>
         <div className="toolbar">
+          <Button variant="secondary" onClick={() => setTheme(current => current === 'light' ? 'dark' : 'light')}>
+            Skift til {theme === 'light' ? 'mørkt' : 'lyst'} tema
+          </Button>
           <Button variant="secondary" onClick={() => setMessages([welcome])}>Ny samtale</Button>
         </div>
       </header>

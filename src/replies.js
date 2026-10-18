@@ -16,7 +16,7 @@ export const welcome = {
 export function replyTo(text) {
   const question = text.toLowerCase();
   if (question.includes('tema')) return {
-    text: 'Et tema giver de samme tokens nye værdier. Komponenten her bruger tokenet til overfladen. Temaskift kommer i en senere øvelse; denne version har ét udseende.',
+    text: 'Prøv temaknappen i toppen. React skifter data-theme, og CSS lader de semantiske tokens pege på andre primitive tokens. De primitive farver forbliver faste. Komponenten her bruger de samme tokennavne i begge temaer.',
     code: `export function ChatPanel({ children }) {
   return (
     <section style={{
