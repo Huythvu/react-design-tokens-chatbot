@@ -70,11 +70,11 @@ npm start
 
 Vælg en side med knap, inputfelt og kort eller panel. Projektet skal allerede kunne køre lokalt. Behold jeres værktøjer og struktur; I skal ikke installere denne template eller tilføje en chatbot.
 
-Følg afsnittene **Eget projekt** i øvelsesarket. Har I allerede tokens og et komponentbibliotek, kortlæg og genbrug dem først.
+Følg [det selvstændige øvelsesark til eget projekt](Oevelser-eget-projekt.md) hele dagen. I skal ikke skifte til chatbotprojektet. Har I allerede tokens og et komponentbibliotek, kortlæg og genbrug dem først.
 
 ## Start øvelserne
 
-Åbn **[øvelsesarket](Oevelser.md)**. Begge spor har samme læringsmål:
+Åbn **[øvelsesoversigten](Oevelser.md)**, vælg enten chatbotprojektet eller eget projekt, og følg kun det valgte spor hele dagen. Begge spor har samme læringsmål:
 
 Brug også **[Token-cheat-sheet](Token-cheat-sheet.md)** med danske forklaringer, Atlassian-tokennavne og React/CSS-eksempler.
 
