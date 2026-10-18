@@ -21,6 +21,10 @@ h1 { margin: 0; font-size: var(--font-size-heading); }
 .message--user { align-self: flex-end; background: var(--color-message-user); color: var(--color-on-message-user); }
 .message p { margin: var(--space-1) 0 0; }
 .message-author { font-size: var(--font-size-small); }
+.message-code-label { font-weight: var(--font-weight-strong); }
+.message .message-code-label { margin-top: var(--space-4); }
+.message-code { max-width: 100%; overflow-x: auto; margin: var(--space-2) 0 0; padding: var(--space-3); border-radius: var(--radius-control); background: var(--color-code-surface); color: var(--color-code-text); font-family: var(--font-family-code); font-size: var(--font-size-small); white-space: pre; overflow-wrap: normal; }
+.message-code:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
 .composer { padding: var(--space-panel); border-top: var(--border-width) solid var(--color-border); }
 .composer label { display: block; margin-bottom: var(--space-2); font-weight: var(--font-weight-strong); }
 .composer-controls { display: flex; gap: var(--space-2); }

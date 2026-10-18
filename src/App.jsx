@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Message, Composer } from './components.jsx';
-
-const welcome = { id: 0, role: 'assistant', text: 'Hej! Spørg mig om design tokens, komponenter eller temaer.' };
-
-function replyTo(text) {
-  const question = text.toLowerCase();
-  if (question.includes('tema')) return 'Et tema giver de samme semantiske tokens nye værdier. Komponenterne bruger stadig de samme navne.';
-  if (question.includes('komponent')) return 'En fælles komponent samler struktur og adfærd. Tokens samler designbeslutninger.';
-  if (question.includes('token')) return 'Et design token er en navngiven designbeslutning, fx --color-text eller --space-3.';
-  return 'Prøv at spørge om tokens, komponenter eller temaer. Jeg bruger faste demosvar og gemmer ikke samtalen.';
-}
+import { welcome, replyTo } from './replies.js';
 
 export default function App() {
   const [messages, setMessages] = useState([welcome]);
@@ -17,7 +8,7 @@ export default function App() {
   function send(text) {
     setMessages(current => [...current,
       { id: crypto.randomUUID(), role: 'user', text },
-      { id: crypto.randomUUID(), role: 'assistant', text: replyTo(text) }
+      { id: crypto.randomUUID(), role: 'assistant', ...replyTo(text) }
     ]);
   }
 

@@ -4,10 +4,14 @@ export function Button({ variant = 'primary', type = 'button', children, ...prop
   return <button type={type} className={`button button--${variant}`} {...props}>{children}</button>;
 }
 
-export function Message({ role, text }) {
+export function Message({ role, text, code }) {
   return <article className={`message message--${role}`}>
     <strong className="message-author">{role === 'user' ? 'Dig' : 'Token-bot'}</strong>
     <p>{text}</p>
+    {role === 'assistant' && code && <>
+      <p className="message-code-label">React-eksempel</p>
+      <pre className="message-code" tabIndex={0} aria-label="React-kodeeksempel"><code>{code}</code></pre>
+    </>}
   </article>;
 }
 

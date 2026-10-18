@@ -7,6 +7,7 @@ Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og int
 - `src/tokens.css`: Primitive værdier og semantiske roller.
 - `src/styles.css`: Komponenternes CSS bruger de fælles tokens.
 - `src/main.jsx`: Importerer tokens før komponenternes styles.
+- `src/replies.js`: Faste demosvar med et React-kodeeksempel i hvert svar, også velkomst og standardsvar. Koden vises som tekst og bliver ikke eksekveret.
 
 Sammenlign med [startkoden på main](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/main). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
 
