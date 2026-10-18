@@ -1,0 +1,56 @@
+# Design tokens i React · Token-chatten
+
+PBA Webudvikling · EAAA · 8.15–11.30
+
+**Hvordan holder vi et design sammenhængende, når 10 udviklere eller AI-agenter arbejder på samme projekt?**
+
+I arbejder med fælles tokens, komponenter, temaer og aftaler om samarbejde. Ingen Figma eller API-nøgle er nødvendig. Chatbotten bruger faste demosvar og gemmer kun beskeder i hukommelsen indtil genindlæsning.
+
+## A · Brug denne React-template
+
+Vælg **Code → Download ZIP** på GitHub, og udpak projektet. I kan også forke eller klone repositoryet, hvis I vil gemme jeres arbejde på GitHub.
+
+Åbn projektmappen i jeres editor. Brug Node.js 22.12+ eller en nyere understøttet LTS-version:
+
+```sh
+npm ci
+npm start
+```
+
+Åbn den lokale adresse, som terminalen viser. Brug `npm run build` til at kontrollere, at appen kan bygges.
+
+## B · Brug jeres eget React-projekt
+
+Vælg en side med knap, inputfelt og kort eller panel. Projektet skal allerede kunne køre lokalt. Behold jeres værktøjer og struktur; I skal ikke installere denne template eller tilføje en chatbot.
+
+Følg afsnittene **Eget projekt** i øvelsesarket. Har I allerede tokens og et komponentbibliotek, kortlæg og genbrug dem først.
+
+## Start øvelserne
+
+Åbn **[øvelsesarket](Oevelser.md)**. Begge spor har samme læringsmål:
+
+1. Brain starter: Én besked, mange knapper.
+2. Saml designbeslutninger i primitive og semantiske tokens.
+3. Byg to komponenter med fælles tokens og en arbejdsaftale.
+4. Tilføj et mørkt tema.
+5. Stresstest med ny brandfarve og kompakt visning.
+
+## Find rundt i koden
+
+- `src/App.jsx`: Samtale, demosvar, tema og tæthed.
+- `src/components.jsx`: Button, Message og Composer.
+- `src/styles.css`: Start-CSS med bevidst gentagne og forskellige designværdier.
+- `src/main.jsx`: Startpunkt og CSS-imports.
+
+Knapperne **Mørkt tema** og **Kompakt** ændrer allerede React-state og data-attributter. I startversionen ændrer de ikke udseendet. Det implementerer I med tokens og CSS i øvelserne.
+
+Løsningsforslaget og undervisernoterne er ikke en del af dette repository.
+
+## Afgrænsning
+
+Tokens implementeres som CSS custom properties. Vi fokuserer på navngivning, genbrug og koordinering frem for eksportværktøjer og tokenformater. Tokens suppleres med fælles komponenter, ejerskab og review.
+
+## Referencer
+
+- [React: komponenter, props og state](https://react.dev/learn)
+- [Vite: udviklingsmiljø](https://vite.dev/guide/)
