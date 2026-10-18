@@ -4,7 +4,7 @@ I videreudvikler en lille React-chatbot. Jeres mål er, at andre udviklere eller
 
 ## Vælg jeres udgangspunkt
 
-**Spor A · Hent templaten:** Vælg **Code → Download ZIP** i dette GitHub-repository, og udpak projektet. I kan også forke eller klone det. Templaten indeholder en lille React-chatbot med komponenter og CSS, som I arbejder videre på. Start den efter vejledningen i README. Chatbotten har faste demosvar og kræver ingen API-nøgle.
+**Spor A · Hent templaten:** Vælg først branchen **starter** (startkode uden tokens), vælg derefter **Code → Download ZIP**, og udpak projektet. Standardbranchen main indeholder token-løsningen. I kan også forke eller klone det. Templaten indeholder en lille React-chatbot med komponenter og CSS, som I arbejder videre på. Start den efter vejledningen i README. Chatbotten har faste demosvar og kræver ingen API-nøgle.
 
 **Spor B · Brug eget React-projekt:** Vælg en eksisterende side med mindst en knap, et inputfelt og et kort eller panel. Projektet skal kunne køre lokalt. Brug jeres egne komponenter i stedet for chatbot-komponenterne. I behøver ikke tilføje en chatbot.
 

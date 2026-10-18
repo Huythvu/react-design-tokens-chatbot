@@ -1,6 +1,6 @@
 # Design tokens i React · Token-chatten
 
-## Denne branch: Kun tokens
+## Main: Chatbot med tokens
 
 ### Slide 6 som React-komponent
 
@@ -15,18 +15,18 @@ Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og int
 - `src/main.jsx`: Importerer tokens før komponenternes styles.
 - `src/replies.js`: Faste demosvar med et React-kodeeksempel i hvert svar, også velkomst og standardsvar. Koden vises som tekst og bliver ikke eksekveret.
 
-Sammenlign med [startkoden på main](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/main). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
+Sammenlign med [startkoden på starter](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/starter). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
 
 Hent denne version med:
 
 ```sh
-git clone --branch tokens-solution https://github.com/h-oellgaard/react-design-tokens-chatbot.git
+git clone --branch main https://github.com/h-oellgaard/react-design-tokens-chatbot.git
 cd react-design-tokens-chatbot
 npm ci
 npm start
 ```
 
-I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `tokens-solution`.
+I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `main`.
 
 Nedenstående beskriver det samlede undervisningsforløb. Øvelsernes temaskift er næste trin, ikke en funktion i denne version.
 
@@ -37,6 +37,8 @@ PBA Webudvikling · EAAA · 8.15–11.30
 I arbejder med fælles tokens, komponenter, temaer og aftaler om samarbejde. Ingen Figma eller API-nøgle er nødvendig. Chatbotten bruger faste demosvar og gemmer kun beskeder i hukommelsen indtil genindlæsning.
 
 ## A · Brug denne React-template
+
+Standardbranchen `main` indeholder nu token-versionen. Til øvelse 1 uden tokens skal I vælge [starter](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/starter), før I henter ZIP-filen, eller klone med `git clone --branch starter https://github.com/h-oellgaard/react-design-tokens-chatbot.git`.
 
 Vælg **Code → Download ZIP** på GitHub, og udpak projektet, eller klon det med Git som beskrevet nedenfor.
 
@@ -91,7 +93,7 @@ Hver kodeøvelse har også et valgfrit **Level 2** til de hurtige: en visuel tok
 - `src/styles.css`: Start-CSS med bevidst gentagne og forskellige designværdier.
 - `src/main.jsx`: Startpunkt og CSS-imports.
 
-På `main` findes knapperne **Mørkt tema** og **Kompakt** som forberedelse til senere øvelser. I denne token-version er de fjernet, så fokus er på fælles designbeslutninger.
+På `starter` findes knapperne **Mørkt tema** og **Kompakt** som forberedelse til senere øvelser. I denne token-version er de fjernet, så fokus er på fælles designbeslutninger.
 
 Denne branch indeholder token-løsningen. Undervisernoterne er ikke en del af repositoryet.
 
