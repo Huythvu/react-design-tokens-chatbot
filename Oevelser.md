@@ -10,6 +10,12 @@ I videreudvikler en lille React-chatbot. Jeres mål er, at andre udviklere eller
 
 Begge spor har samme læringsmål og afleveringer. Arbejd i par. Aftal, hvem der skriver, og hvem der reviewer; byt efter første øvelse.
 
+### Level 1 og Level 2
+
+Hver kodeøvelse har en fælles grundopgave (**Level 1**) og en valgfri udvidelse (**Level 2**) til jer, der bliver hurtigt færdige. Gennemfør først grundopgaven og dens tjek. Vælg derefter Level 2 i den aktuelle øvelse; I behøver ikke løse alle udvidelser. Deltag stadig i fælles oplæg og afslutning. Ufærdige udvidelser kan bruges som hjemmearbejde.
+
+Level 2 gælder begge spor. Brug tilsvarende komponenter og projektets eksisterende værktøjer, hvis I arbejder i eget projekt.
+
 ## 0 · Brain starter (8.15–8.25)
 
 Alle får samme besked: **“Lav en tydelig knap, der leder tilbage til forrige side.”**
@@ -54,6 +60,18 @@ Eksempel på strukturen, som I selv udvider:
 
 **Tjek:** Kan I ændre handlingsfarven ét sted? Har I navngivet efter funktion, hvor temaet kan ændre værdien? Undgå at lave tokens for hver eneste CSS-deklaration.
 
+### Level 2 · Kan andre forstå jeres tokens?
+
+**Udfordring:** En ny udvikler skal kunne vælge rigtigt uden at spørge jer.
+
+1. Lav en lille `TokenPreview`-komponent, der viser jeres semantiske farver som tekst/baggrund-par, afstandsskala og afrundinger. Brug de faktiske CSS-variabler, så visningen følger ændringer automatisk.
+2. Dokumenter mindst fem semantiske tokens: navn, anvendelse og ét eksempel på forkert anvendelse. Forklar også, hvornår en ny token er berettiget.
+3. Lad makkeren style et lille informationspanel ud fra dokumentationen uden at opfinde nye farver.
+
+**Aflever:** En visuel tokenoversigt og en kort tokenvejledning i Markdown.
+
+**Tjek:** Ændr en tokenværdi. Opdateres både oversigten og komponenterne? Kunne makkeren vælge tokens uden hjælp? Layoutværdier må gerne være lokale; begrund, hvad I vælger at dele.
+
 ## 2 · To udviklere, samme chatbot (10.00–10.25)
 
 **Problem:** En udvikler tilføjer forslag til spørgsmål. En anden bygger et panel med hjælp. Begge skal passe ind i samme design.
@@ -80,6 +98,19 @@ Opret hver jeres komponentfil og aftal, hvem der integrerer i `App.jsx`, så I u
 
 Hvis I bruger en AI-agent, giv den aftalen og de relevante filer. Review dens ændringer efter præcis de samme regler.
 
+### Level 2 · Udvid komponenten uden at kopiere den
+
+**Udfordring:** Flere udviklere vil have hver deres knapvariant. I skal holde interfacet overskueligt.
+
+1. Udvid den fælles `Button` med `size="small" | "medium"` og `variant="danger"` til destruktive handlinger. Brug medium som standard, så eksisterende knapper fortsat virker.
+2. Definer semantiske tokens til danger-baggrund, tekst og hover samt afstandstokens til størrelserne. Brug danger til “Ny samtale”, som rydder beskederne, eller en tilsvarende handling i eget projekt.
+3. Lav en lille komponentoversigt, der viser begge størrelser og alle tre varianter i normal og disabled tilstand. Kontroller også hover og tastaturfokus.
+4. Dokumenter props og skriv et kort eksempel på en instruktion til en AI-agent, der skal genbruge komponenten. Det er ikke nødvendigt at have en AI-konto.
+
+**Aflever:** Én udvidet Button, en komponentoversigt og en dokumenteret aftale om dens props.
+
+**Tjek:** Er tidligere brug af Button stadig intakt? Virker `type="submit"`, `onClick`, `disabled` og `aria-*` stadig? Skal der en ny komponent til, hver gang en udvikler ønsker en anden farve? Tag de nye varianter med i den næste temaøvelse.
+
 ## 3 · Et mørkt tema (10.25–10.50)
 
 **Problem:** Chatbotten skal fungere både lyst og mørkt. Komponenterne skal beholde deres CSS-regler.
@@ -98,6 +129,19 @@ Første fem minutter er fælles demonstration. Derefter:
 
 **Tjek:** Fungerer tekst og baggrund sammen? Kan I tydeligt se fokus? Mål kontrast for almindelig tekst, sigt efter mindst 4,5:1. En mørk baggrund alene er ikke et komplet mørkt tema.
 
+### Level 2 · Følg systemet, men respekter brugerens valg
+
+**Udfordring:** Brugeren skal kunne vælge **Lyst**, **Mørkt** eller **System**.
+
+1. Erstat temaknappen med et navngivet select-felt eller en tydelig gruppe af knapper med de tre valg.
+2. Gem brugerens valg i `localStorage`. Gem præferencen `system`, ikke blot den farvetilstand, systemet tilfældigvis har lige nu.
+3. Brug `prefers-color-scheme` til at afgøre det aktive tema, når valget er System. Følg også ændringer i systemtemaet, mens appen er åben. Fjern event listeners, når React-effekten rydder op.
+4. Hold brugerens præference adskilt fra det aktive tema. Et eksplicit valg af Lyst eller Mørkt skal have forrang frem for systemet.
+
+**Aflever:** Tre temavalg, som huskes ved genindlæsning. Husk semantiske tokens til den nye kontrol.
+
+**Tjek:** Afprøv uden gemt præference, efter genindlæsning og ved systemskift med appen åben. Test, at et eksplicit valg ikke ændres af systemet. Brug eventuelt browserens udviklerværktøjer til at simulere lyst og mørkt systemtema.
+
 ## 4 · Stresstest: Nyt brand og kompakt visning (10.50–11.10)
 
 I får denne besked: **“Skift brandfarven, og gør chatbotten mere kompakt.”**
@@ -113,6 +157,21 @@ I får denne besked: **“Skift brandfarven, og gør chatbotten mere kompakt.”
 **Aflever:** En ændring, der slår igennem centralt, og én observation fra reviewet.
 
 **Review:** Prøv alle fire kombinationer af lyst/mørkt og normal/kompakt. Send en besked, nulstil samtalen og prøv en lang besked uden mellemrum. Prøv smal mobilbredde og betjen med Tab og Enter. Er der lokale farver, som temaet ikke styrer?
+
+### Level 2 · Fang brud på aftalerne automatisk
+
+**Udfordring:** En ellevte udvikler tilføjer en lokal farvekode. Hvordan opdager I det før review?
+
+1. Tilføj et tjek, der finder direkte farveværdier i komponenternes styles, fx hex, rgb/rgba, hsl/hsla og navngivne farver. Brug projektets eksisterende lintværktøj eller et lille script. Tokenfiler skal være undtaget.
+2. Aftal tilladte undtagelser, fx `transparent`, `currentColor` og `inherit`. Dokumenter, hvilke filer og farveformater tjekket faktisk dækker. Et simpelt teksttjek behøver ikke kunne fortolke al CSS.
+3. Tilføj en kommando, fx `npm run check:tokens`. Den skal afslutte med fejlstatus, når en regel brydes, og vise filen med problemet.
+4. Indsæt bevidst en ulovlig farve i en komponent. Vis, at tjekket fejler. Ret den til en token, og vis, at tjekket passerer. Test også en tilladt værdi i tokenfilen.
+
+**Aflever:** Tjekket, kommandoen og et kort eksempel på fejl og rettelse.
+
+**Tjek:** Fanger I både en ny farve i CSS og en inlinefarve i JSX? Hvis ikke, skriv begrænsningen tydeligt. Forklar ét designproblem, som tjekket ikke kan opdage, fx brug af den forkerte semantiske token.
+
+**Ekstra, hvis I stadig har tid:** Kør det samme tjek og projektets build i GitHub Actions ved push og pull request. Hold workflowet fri for API-nøgler og andre hemmeligheder.
 
 ## Fælles afslutning (11.10–11.30)
 

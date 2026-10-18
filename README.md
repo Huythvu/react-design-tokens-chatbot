@@ -50,6 +50,8 @@ Følg afsnittene **Eget projekt** i øvelsesarket. Har I allerede tokens og et k
 4. Tilføj et mørkt tema.
 5. Stresstest med ny brandfarve og kompakt visning.
 
+Hver kodeøvelse har også et valgfrit **Level 2** til de hurtige: en visuel tokenoversigt, flere komponentvarianter, systemtema med gemte præferencer og automatisk kontrol af lokale farveværdier. Løs grundopgaven først; udvidelserne gælder både templaten og eget projekt.
+
 ## Find rundt i koden
 
 - `src/App.jsx`: Samtale, demosvar, tema og tæthed.
