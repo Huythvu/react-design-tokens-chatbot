@@ -2,6 +2,10 @@
 
 ## Denne branch: Kun tokens
 
+### Slide 6 som React-komponent
+
+Start appen, og tilføj `?slide=6` til den lokale adresse (fx `http://localhost:5173/?slide=6`). `src/TokenTypesSlide.jsx` viser primitive og semantiske tokens med et farvevalg, der opdaterer knappen gennem tokenreferencer. Dette ændrer en primitiv værdi; det implementerer ikke et temaskift. Knappen Send er en visuel demonstration.
+
 Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og intet temaskift eller kompakt visning endnu.
 
 - `src/tokens.css`: Primitive værdier og semantiske roller.
