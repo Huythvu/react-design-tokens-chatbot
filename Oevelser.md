@@ -14,7 +14,7 @@ Brug et React-projekt, som allerede kører. Vælg én side med knap, input og ko
 
 **[Åbn hele øvelsesarket til eget projekt](Oevelser-eget-projekt.md)**
 
-Begge spor dækker fælles tokens, samarbejde, temaer og centrale designændringer. Begge har egne instruktioner til Level 1 og valgfri Level 2. Arbejd i par og byt roller undervejs. Følg fælles oplæg og opsamlinger uanset spor.
+Der er ingen afleveringer. Opgaverne skal implementeres og afprøves i det projekt, I har valgt. Begge spor dækker fælles tokens, samarbejde, temaer og centrale designændringer. Begge har egne instruktioner til Level 1 og valgfri Level 2. Arbejd i par og byt roller undervejs. Følg fælles oplæg og opsamlinger uanset spor.
 
 ## Level 2 · Kan andre forstå jeres tokens?
 
