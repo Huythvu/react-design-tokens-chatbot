@@ -6,7 +6,7 @@ Projektet skal kunne køre lokalt. Vælg en afgrænset side med en knap, et inpu
 
 Behold jeres filstruktur, værktøjer og komponentbiblioteker. Har I allerede tokens, kortlæg og genbrug dem først. Fokus er at få lokale styles til at følge jeres fælles system, ikke at bygge et parallelt designsystem. Start med projektets sædvanlige startkommando.
 
-Arbejd i par. Aftal, hvem der skriver, og hvem der reviewer. Byt efter øvelse 1. Gennemfør Level 1 først; Level 2 er frivillig for de hurtige og kan fortsættes hjemme. Deltag stadig i fælles oplæg og afslutning.
+Der er ingen afleveringer. I skal implementere opgaverne i det valgte projekt og afprøve, at løsningerne virker. Arbejd i par. Aftal, hvem der skriver, og hvem der reviewer. Byt efter øvelse 1. Gennemfør Level 1 først; Level 2 er frivillig for de hurtige og kan fortsættes hjemme. Deltag stadig i fælles oplæg og afslutning.
 
 ## 0 · Brain starter (8.15–8.25)
 
@@ -67,7 +67,7 @@ Eksempel på strukturen, som I selv udvider:
 }
 ```
 
-**Aflever:** Jeres tokenfil og tre sætninger om navngivningen.
+**Implementer:** En fælles tokenfil, som komponenternes CSS bruger. Gennemgå navngivningen med makkeren.
 
 **Tjek:** Kan I ændre handlingsfarven ét sted? Har I navngivet efter funktion, hvor temaet kan ændre værdien? Undgå at lave tokens for hver eneste CSS-deklaration.
 
@@ -85,7 +85,7 @@ Kataloget hjælper en ny udvikler med at se, hvilke tokens der findes, hvordan d
    - **Afstande:** Tre bokse med forskellig indvendig afstand fra jeres skala, fx `--space-2`, `--space-4` og `--space-6`. Skriv navnet på hver token, så forskellen er let at sammenligne.
    - **Afrunding:** Bokse med jeres forskellige radius-tokens. Skriv også her tokennavnene.
 3. Brug `var(--...)` i eksemplernes CSS. Farvefeltet må altså ikke få en manuelt kopieret hexværdi; det skal bruge den samme token som appen.
-4. Skriv en kort vejledning til mindst fem **semantiske** tokens: navn, hvad den bruges til, og et eksempel på forkert brug. Fx: `--color-text` bruges til almindelig tekst, ikke som baggrundsfarve. Forklar også, hvornår teamet må oprette en ny token. Har I endnu ikke fem, så aftal relevante roller ud fra den eksisterende side.
+4. Tilføj korte forklaringer i TokenPreview til mindst fem **semantiske** tokens: navn, hvad den bruges til, og et eksempel på forkert brug. Fx: `--color-text` bruges til almindelig tekst, ikke som baggrundsfarve. Forklar også, hvornår teamet må oprette en ny token. Har I endnu ikke fem, så aftal relevante roller ud fra den eksisterende side.
 5. Lad makkeren bygge et lille informationspanel ved hjælp af kataloget og vejledningen uden at opfinde nye farver.
 
 **Lille React-eksempel til at komme i gang:** Tilpas navnene til jeres egen tokenfil, og udvid derefter med afstande og afrundinger.
@@ -110,9 +110,9 @@ export function TokenPreview() {
 
 Vis den ved at importere komponenten i `App.jsx` og indsætte `<TokenPreview />` **inde i den wrapper, der definerer jeres semantiske tokens**, fx `.app`. Så kan forhåndsvisningen arve værdierne.
 
-**Aflever:** En visuel tokenoversigt og en kort tokenvejledning i Markdown.
+**Implementer:** En TokenPreview i appen, der viser jeres faktiske tokens. Tilføj korte forklaringer ved eksemplerne.
 
-**I er færdige, når:** Tokennavnene står ved de visuelle eksempler, alle eksempler bruger jeres faktiske tokens, og makkeren kan vælge tokens ud fra vejledningen. Lad fx en semantisk farvetoken pege på en anden eksisterende primitiv token: Både kataloget og appen skal følge med. Behold palettens navne og værdier meningsfulde; lad ikke en grøn primitiv token skifte til sort. Temaer er ikke nødvendige for at løse denne opgave. Layoutværdier må gerne være lokale; begrund, hvad I vælger at dele.
+**I er færdige, når:** Tokennavnene står ved de visuelle eksempler, alle eksempler bruger jeres faktiske tokens, og makkeren kan vælge tokens ud fra forklaringerne i appen. Lad fx en semantisk farvetoken pege på en anden eksisterende primitiv token: Både kataloget og appen skal følge med. Behold palettens navne og værdier meningsfulde; lad ikke en grøn primitiv token skifte til sort. Temaer er ikke nødvendige for at løse denne opgave. Layoutværdier må gerne være lokale; begrund, hvad I vælger at dele.
 
 ## 2 · To udviklere, samme side (10.00–10.25)
 
@@ -124,7 +124,7 @@ Vis den ved at importere komponenten i `App.jsx` og indsætte `<TokenPreview />`
 4. **Udvikler B:** Byg et hjælpepanel med tekst til sidens bruger og en Luk-knap. Panelet modtager en callback til lukning. Siden skal også have en knap til at åbne hjælpen igen.
 5. Opret hver jeres komponentfil. Aftal, hvem der integrerer dem på den valgte side, og gennemgå resultatet sammen.
 
-**Aflever:** To udvidelser til jeres egen side og jeres arbejdsaftale.
+**Implementer:** Begge udvidelser på jeres valgte side, og afprøv deres funktioner sammen. Brug jeres fælles arbejdsaftale undervejs.
 
 **Tjek:** Virker handlingerne? Kan hjælpen lukkes og åbnes? Bruger begge udvidelser fælles knapper og tokens? Hvilke beslutninger krævede aftaler ud over tokens?
 
@@ -139,7 +139,7 @@ Hvis I bruger en AI-agent, giv den aftalen og projektets eksisterende tokens og 
 3. Lav en lille komponentoversigt, der viser begge størrelser og alle tre varianter i normal og disabled tilstand. Kontroller også hover og tastaturfokus.
 4. Dokumenter props og skriv et kort eksempel på en instruktion til en AI-agent, der skal genbruge komponenten. Det er ikke nødvendigt at have en AI-konto.
 
-**Aflever:** Én udvidet Button, en komponentoversigt og en dokumenteret aftale om dens props.
+**Implementer:** Den udvidede knapkomponent og en komponentoversigt i appen. Brug de props, I har aftalt.
 
 **Tjek:** Er tidligere brug af Button stadig intakt? Virker `type="submit"`, `onClick`, `disabled` og `aria-*` stadig? Skal der en ny komponent til, hver gang en udvikler ønsker en anden farve? Tag de nye varianter med i den næste temaøvelse.
 
@@ -155,7 +155,7 @@ Første fem minutter er fælles demonstration. Derefter:
 4. Kontroller også jeres nye komponenter fra øvelse 2.
 5. Afprøv hover, tastaturfokus, placeholder og deaktiverede knapper i begge temaer.
 
-**Aflever:** To temaer med de samme komponenter.
+**Implementer:** Et fungerende skift mellem lyst og mørkt tema med de samme komponenter.
 
 **Tjek:** Fungerer tekst og baggrund sammen? Kan I tydeligt se fokus? Mål kontrast for almindelig tekst, sigt efter mindst 4,5:1. En mørk baggrund alene er ikke et komplet mørkt tema.
 
@@ -168,7 +168,7 @@ Første fem minutter er fælles demonstration. Derefter:
 3. Brug `prefers-color-scheme` til at afgøre det aktive tema, når valget er System. Følg også ændringer i systemtemaet, mens appen er åben. Fjern event listeners, når React-effekten rydder op.
 4. Hold brugerens præference adskilt fra det aktive tema. Et eksplicit valg af Lyst eller Mørkt skal have forrang frem for systemet.
 
-**Aflever:** Tre temavalg, som huskes ved genindlæsning. Husk semantiske tokens til den nye kontrol.
+**Implementer:** Tre fungerende temavalg, som huskes ved genindlæsning. Brug semantiske tokens til den nye kontrol.
 
 **Tjek:** Afprøv uden gemt præference, efter genindlæsning og ved systemskift med appen åben. Test, at et eksplicit valg ikke ændres af systemet. Brug eventuelt browserens udviklerværktøjer til at simulere lyst og mørkt systemtema.
 
@@ -182,7 +182,7 @@ I får denne besked: **“Skift brandfarven, og gør jeres valgte side mere komp
 4. Behold knapperne brugbare; mindre afstand behøver ikke betyde mindre klikflader.
 5. Lad et andet par reviewe jeres løsning.
 
-**Aflever:** En ændring, der slår igennem centralt, og én observation fra reviewet.
+**Implementer:** Den centrale brandændring og en fungerende kompakt visning. Afprøv resultatet med et andet par.
 
 **Review:** Prøv alle fire kombinationer af lyst/mørkt og normal/kompakt. Afprøv sidens primære handling, åbn og luk hjælpen, og indsæt lang tekst i inputfeltet. Prøv smal mobilbredde og betjen med Tab og Enter. Er der lokale farver, som temaet ikke styrer?
 
@@ -195,7 +195,7 @@ I får denne besked: **“Skift brandfarven, og gør jeres valgte side mere komp
 3. Tilføj en kommando, fx `npm run check:tokens`. Den skal afslutte med fejlstatus, når en regel brydes, og vise filen med problemet.
 4. Indsæt bevidst en ulovlig farve i en komponent. Vis, at tjekket fejler. Ret den til en token, og vis, at tjekket passerer. Test også en tilladt værdi i tokenfilen.
 
-**Aflever:** Tjekket, kommandoen og et kort eksempel på fejl og rettelse.
+**Implementer:** Et tjek, der kan køres i projektet. Indsæt en bevidst fejl, kontroller at tjekket fejler, og ret den igen.
 
 **Tjek:** Fanger I både en ny farve i CSS og en inlinefarve i JSX? Hvis ikke, skriv begrænsningen tydeligt. Forklar ét designproblem, som tjekket ikke kan opdage, fx brug af den forkerte semantiske token.
 
@@ -205,4 +205,4 @@ I får denne besked: **“Skift brandfarven, og gør jeres valgte side mere komp
 
 Vis én designbeslutning, I har ændret, og forklar hvor mange steder den påvirkede.
 
-Exit ticket: Skriv tre regler til den næste udvikler eller AI-agent, der skal arbejde videre på jeres projekt. Nævn også ét problem, som tokens ikke løser.
+Tal med makkeren om tre regler til den næste udvikler eller AI-agent, der skal arbejde videre på jeres projekt. Nævn også ét problem, som tokens ikke løser.
