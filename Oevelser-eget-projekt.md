@@ -118,6 +118,10 @@ Vis den ved at importere komponenten i `App.jsx` og indsætte `<TokenPreview />`
 
 **Problem:** I bygger hver jeres udvidelse til den valgte side. Begge skal følge samme design og bruge jeres tokens.
 
+**Vælg komponenter, der giver mening i jeres eget projekt.** Handlingspanelet og hjælpepanelet nedenfor er eksempler. I kan i stedet vælge to andre komponenter, fx et produktkort og et filterpanel, en formular og en statusbesked eller to relevante udvidelser til jeres eksisterende side. I behøver ikke bygge handlings- og hjælpepanelerne, hvis I vælger noget andet.
+
+Aftal, hvem der bygger hvilken komponent, hvilke props og callbacks de har brug for, og hvordan de bruger fælles tokens og genbrugelige komponenter. Tilpas trin 2-5 og tjeklisten til jeres valg. En fælles knap bruges, hvor en handling kræver en knap; I skal ikke tilføje knapper uden et formål.
+
 1. Brug tre minutter på en Team Working Agreement: Genbrug tokens og fælles komponenter, aftal nye tokens, og review ændringer. Aftal også props og integration, inden I deler arbejdet.
 2. Vælg eller opret én fælles knapkomponent, som begge udvidelser kan bruge. Genbrug bibliotekets knap, hvis I allerede har en. Aftal en primær og en sekundær variant inden for projektets eksisterende API.
 3. **Udvikler A:** Byg et lille handlingspanel med en eller to relevante handlinger til siden, fx Gem og Fortryd. Panelet modtager callbacks til handlingerne; genbrug sidens eksisterende funktioner eller vis en tydelig lokal kvittering. Der kræves ingen ny backend.
@@ -126,7 +130,7 @@ Vis den ved at importere komponenten i `App.jsx` og indsætte `<TokenPreview />`
 
 **Implementer:** Begge udvidelser på jeres valgte side, og afprøv deres funktioner sammen. Brug jeres fælles arbejdsaftale undervejs.
 
-**Tjek:** Virker handlingerne? Kan hjælpen lukkes og åbnes? Bruger begge udvidelser fælles knapper og tokens? Hvilke beslutninger krævede aftaler ud over tokens?
+**Tjek:** Virker jeres valgte komponenters funktioner og samspil? Hvis I valgte hjælpepanelet, kan det lukkes og åbnes? Bruger begge udvidelser fælles tokens og relevante genbrugelige komponenter? Hvilke beslutninger krævede aftaler ud over tokens?
 
 Hvis I bruger en AI-agent, giv den aftalen og projektets eksisterende tokens og komponenter. Review dens ændringer efter samme regler.
 
