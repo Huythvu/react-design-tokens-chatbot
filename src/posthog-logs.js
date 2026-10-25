@@ -1,7 +1,13 @@
 import posthog, { isPostHogConfigured } from './posthog.js';
 
 function info(message, attributes) {
-  if (isPostHogConfigured) posthog.logger.info(message, attributes);
+  if (!isPostHogConfigured) return;
+
+  try {
+    posthog.logger.info(message, attributes);
+  } catch (error) {
+    console.error(`PostHog log "${message}" failed; the user action will continue.`, error);
+  }
 }
 
 export const chatLog = {

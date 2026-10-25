@@ -13,7 +13,60 @@ Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og int
 - `src/tokens.css`: Primitive værdier og semantiske roller.
 - `src/styles.css`: Komponenternes CSS bruger de fælles tokens.
 - `src/main.jsx`: Importerer tokens før komponenternes styles.
-- `src/replies.js`: Faste demosvar med et React-kodeeksempel i hvert svar, også velkomst og standardsvar. Koden vises som tekst og bliver ikke eksekveret.
+- `src/replies.js`: Lokale, emnebestemte demosvar med almindelig og enklere forklaring samt kodeeksempler. Koden vises som tekst og bliver ikke eksekveret.
+
+## UX-test og produktanalyse
+
+Chatbotten har tre startforslag, svar knyttet til emner og opfølgning pr. svar. Emnegenkendelsen prioriterer specifikke emner og understøtter danske og engelske synonymer. De faste svar dækker:
+
+- Design tokens generelt samt primitive og semantiske tokens.
+- CSS custom properties, `var()` og tokennavngivning.
+- Farver, spacing og typografi.
+- Genbrugelige React-komponenter og en gennemgående React-knap.
+- Lyst og mørkt tema samt hover-, fokus- og deaktiverede tilstande.
+- Tilgængelighed, kontrast og fokus.
+
+Et fagligt svar tilbyder **Forklar enklere**, **Vis kode** og feedback. Opfølgningen bruger emnet på det svar, knappen tilhører; skrevne opfølgninger som “forklar det enklere” bruger det seneste faglige emne i samtalen. Ukendte spørgsmål får en tydelig forklaring af demoens begrænsning. Knapeksemplerne er tekst, ikke eksekverbar eller analyseret kode.
+
+### PostHog-events
+
+Alle events får `app_version`. Samtalens events inkluderer normalt `conversation_id`, `message_id`, `topic` og `source`, når de er relevante. `source` er `typed`, `suggestion` eller `followup`. Events indeholder aldrig beskedtekst, kode eller clipboard-indhold.
+
+| Event | Udløses når | Særlige properties |
+| --- | --- | --- |
+| `chat_started` | Første brugerbesked sendes i en samtale; højst én gang pr. samtale. | Beskedens `message_id`, `topic` og `source`. |
+| `chat_suggestion_clicked` | Et af de tre startforslag vælges. | Den oprettede brugerbeskeds `message_id`, `topic`, `source: suggestion`. |
+| `chat_message_sent` | En skrevet besked, et startforslag eller en opfølgning sendes. | Brugerbeskedens `message_id`, `topic`, `source`; `action` for opfølgninger. |
+| `chat_response_received` | Et lokalt svar er tilføjet og renderet i samtalen. | Svarbeskedens `message_id`, `topic`, `source`; `action` for opfølgninger. Måler ikke AI- eller netværkstid. |
+| `chat_followup_clicked` | **Forklar enklere** eller **Vis kode** vælges på et svar. | Det oprindelige svar `message_id`, `topic`, `source: followup`, `action: simpler` eller `code`. |
+| `chat_code_copied` | Kode kopieres til clipboard. | Svarbeskedens `message_id`, `topic`, `source`, `action: copy_code`. |
+| `chat_code_copy_failed` | Clipboard-kopiering fejler. | Svarbeskedens `message_id`, `topic`, `source`, `action: copy_code`. |
+| `chat_feedback_submitted` | En vurdering vælges eller ændres på et svar. | Svarbeskedens `message_id`, `topic`, `source`, `helpful`; `previous_helpful` ved ændring. Samme vurdering sendes ikke igen. |
+| `chat_reset` | **Ny samtale** vælges. | Den afsluttede samtales `conversation_id`. En ny samtale får et nyt ID. |
+| `token_type_selected` | En token vælges på `?slide=6`. | `selected_token`. |
+| `token_chain_selected` | En token vælges på `?slide=7`. | `selected_token`. |
+| `token_chain_demo_sent` | Demoens Send-knap på `?slide=7` vælges. | Ingen yderligere properties. |
+
+Samtalesvar og brugerbeskeder får hver deres stabile message ID. Opfølgnings- og feedbackevents peger på det svar, de handler om. En skrevet opfølgning tæller som `chat_message_sent` med `source: followup`; `chat_followup_clicked` gælder knapklik.
+
+For at kontrollere events: konfigurér `VITE_POSTHOG_KEY` og `VITE_POSTHOG_HOST`, start appen, udfør en handling, og åbn projektets **Activity** eller **Events** i PostHog. Filtrér på eventnavnet, og inspicér properties. Sammenlign ikke `chat_response_received` med AI-svartid: svarene kommer lokalt og øjeblikkeligt.
+
+PostHog initialiseres kun i `src/posthog.js`. Autocapture er slået fra, session recording er deaktiveret, og chatområdet er markeret `ph-no-capture`. Kun de eksplicitte events ovenfor sendes af chatten. Appen virker også uden PostHog-konfiguration; så sendes analytics-events ikke.
+
+SDK'ets eksisterende exception capture er fortsat aktiveret for ubehandlede fejl og promise-afvisninger; console errors indsamles ikke. Derudover sendes tre strukturerede PostHog-logs, adskilt fra events: chatten klar (`response_source: local_static`), svar oprettet (`response_source: local_static`, `message_count`) og samtale nulstillet (`discarded_message_count`). De indeholder ikke beskedtekst eller svartid.
+
+### Manuel testvejledning
+
+1. **Nybegynder:** Vælg “Forklar design tokens”, og spørg derefter om primitive og semantiske tokens. Kontrollér den almindelige forklaring, **Forklar enklere**, kodevisningen og feedback.
+2. **React-udvikler:** Vælg “Hjælp med en React-knap”, kopiér eksemplet, og kontrollér bekræftelsen. Vælg **Vis kode** på et ældre svar efter at have spurgt om et andet emne; kodeopfølgningen skal stadig handle om det ældre svar.
+3. **Designer:** Spørg, hvordan tokens navngives. Kontrollér, at svaret forklarer semantiske roller som `--color-action` frem for at fokusere på en bestemt farve.
+4. **Udvikler:** Spørg om mørkt tema og derefter fokus. Brug **Forklar enklere** på det ældre mørke-tema-svar; kontrollér, at emnet ikke skifter til fokus.
+
+Kontrollér også, at ukendt kode får et begrænsningssvar, at **Ny samtale** nulstiller opfølgningskontekst og feedback, at gentagne klik på samme feedback kun giver ét event, og at appen stadig virker uden PostHog-variabler. Åbn desuden `?slide=6`, `?slide=7` og `?slide=8` for at kontrollere undervisningssiderne.
+
+### Begrænsninger
+
+Svarene er lokale, faste og valgt ud fra nøgleord; chatbotten forstår ikke vilkårlige spørgsmål eller kode og bruger ingen AI/API-tjeneste. Samtaler gemmes ikke efter genindlæsning. PostHog kan være frakoblet, og manglende analytics påvirker ikke chatfunktionerne.
 
 Sammenlign med [startkoden på starter](https://github.com/h-oellgaard/react-design-tokens-chatbot/tree/starter). Denne branch viser et løsningsforslag til token-refaktoreringen, ikke de senere temaøvelser eller ekstra komponenter.
 

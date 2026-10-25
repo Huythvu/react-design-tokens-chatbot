@@ -18,18 +18,33 @@ h1 { margin: 0; font-size: var(--font-size-heading); }
 .button:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
 :is(button, input):focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
 .notice { padding: var(--space-3) var(--space-panel); margin: 0; color: var(--color-text-muted); font-size: var(--font-size-small); }
+.starter-suggestions { padding: 0 var(--space-panel) var(--space-3); }
+.starter-suggestions > p { margin: 0 0 var(--space-2); color: var(--color-text-muted); font-size: var(--font-size-small); }
+.suggestion-buttons, .message-followups, .message-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
 .messages { display: flex; flex-direction: column; gap: var(--space-stack); padding: var(--space-panel); max-height: var(--layout-log-height); overflow-y: auto; }
 .message { max-width: 85%; padding: var(--space-message) var(--space-4); border-radius: var(--radius-message); overflow-wrap: anywhere; }
 .message--assistant { align-self: flex-start; background: var(--color-message-assistant); color: var(--color-on-message-assistant); }
 .message--user { align-self: flex-end; background: var(--color-message-user); color: var(--color-on-message-user); }
 .message p { margin: var(--space-1) 0 0; }
 .message-author { font-size: var(--font-size-small); }
-.message-code-label { font-weight: var(--font-weight-strong); }
-.message .message-code-label { margin-top: var(--space-4); }
+.message-code-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-4); }
+.message-code-label { margin: 0; font-weight: var(--font-weight-strong); }
 .message-code { max-width: 100%; overflow-x: auto; margin: var(--space-2) 0 0; padding: var(--space-3); border-radius: var(--radius-control); background: var(--color-code-surface); color: var(--color-code-text); font-family: var(--font-family-code); font-size: var(--font-size-small); white-space: pre; overflow-wrap: normal; }
 .message-code:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.message-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-3); }
+.message-followups { margin-right: var(--space-2); }
+.message-feedback { font-size: var(--font-size-small); }
+.copy-status { min-height: 1.5em; color: var(--color-text-muted); font-size: var(--font-size-small); }
 .composer { padding: var(--space-panel); border-top: var(--border-width) solid var(--color-border); }
 .composer label { display: block; margin-bottom: var(--space-2); font-weight: var(--font-weight-strong); }
 .composer-controls { display: flex; gap: var(--space-2); }
 .composer input { width: 100%; min-width: 0; border: var(--border-width) solid var(--color-input-border); border-radius: var(--radius-control); padding: var(--space-control-block) var(--space-3); background: var(--color-surface); color: var(--color-text); }
 .composer input::placeholder { color: var(--color-text-muted); }
+
+@media (max-width: 36rem) {
+  .app { padding: var(--space-3); }
+  .messages { max-height: 55vh; }
+  .message { max-width: 100%; }
+  .composer-controls { flex-wrap: wrap; }
+  .composer-controls .button { width: 100%; }
+}

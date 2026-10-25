@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './token-types-slide.css';
 import './token-chain-slide.css';
-import posthog, { isPostHogConfigured } from './posthog.js';
+import { trackEvent } from './analytics.js';
 
 function SendButton({ onSend }) {
   return <button className="chain-send" onClick={onSend}>Send</button>;
@@ -14,12 +14,12 @@ export default function TokenChainSlide() {
 
   function selectToken(event) {
     const selectedToken = event.target.value;
-    if (isPostHogConfigured) posthog.capture('token_chain_selected', { selected_token: selectedToken });
+    trackEvent('token_chain_selected', { selected_token: selectedToken });
     setActionToken(selectedToken);
   }
 
   function sendDemo() {
-    if (isPostHogConfigured) posthog.capture('token_chain_demo_sent');
+    trackEvent('token_chain_demo_sent');
     setSent(true);
   }
 
@@ -56,5 +56,4 @@ export default function TokenChainSlide() {
     <p><a href="?slide=6">Se forskellen på primitive og semantiske tokens</a></p>
   </main>;
 }
-
 

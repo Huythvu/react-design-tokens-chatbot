@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './token-types-slide.css';
-import posthog, { isPostHogConfigured } from './posthog.js';
+import { trackEvent } from './analytics.js';
 
 export default function TokenTypesSlide() {
   const [actionToken, setActionToken] = useState('--jade-600');
 
   function selectToken(event) {
     const selectedToken = event.target.value;
-    if (isPostHogConfigured) posthog.capture('token_type_selected', { selected_token: selectedToken });
+    trackEvent('token_type_selected', { selected_token: selectedToken });
     setActionToken(selectedToken);
   }
 
@@ -40,5 +40,4 @@ export default function TokenTypesSlide() {
     <p><strong>Don’t:</strong> Lås rollen til en farve, fx <code>--blue-button</code>. Farvenavne er fine på det primitive lag.</p>
   </main>;
 }
-
 
