@@ -15,7 +15,7 @@ if (!isPostHogConfigured) {
 } else {
   posthog.init(posthogKey, {
     api_host: posthogHost,
-    defaults: '2026-05-30',
+    defaults: '2026-08-30',
     logs: {
       serviceName: 'design-tokens-chatbot',
       environment: import.meta.env.MODE,
