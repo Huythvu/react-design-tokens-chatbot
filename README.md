@@ -8,7 +8,7 @@ Chatbotforsiden har links til begge kodeillustrationer. Slide 7 (`?slide=7`) vis
 
 Start appen, og tilføj `?slide=6` til den lokale adresse (fx `http://localhost:5173/?slide=6`). `src/TokenTypesSlide.jsx` viser primitive og semantiske tokens med et valg af den primitive token, som `--color-action` refererer til. `--jade-600` er altid `#3a646d`, og `--neutral-800` er altid `#182230`. Knappen Send er en visuel demonstration. Dette er ikke et komplet temaskift.
 
-Her er chatbotten ombygget til fælles design tokens. Der er ét udseende og intet temaskift eller kompakt visning endnu.
+Chatbotten bruger fælles designtokens og kan skifte mellem lyst og mørkt tema med knappen i sidehovedet. Temaet ændrer semantiske tokenværdier; beskeder og samtale nulstilles ikke ved skift. Kompakt visning er ikke med.
 
 - `src/tokens.css`: Primitive værdier og semantiske roller.
 - `src/styles.css`: Komponenternes CSS bruger de fælles tokens.
@@ -43,6 +43,7 @@ Alle events får `app_version`. Samtalens events inkluderer normalt `conversatio
 | `chat_code_copy_failed` | Clipboard-kopiering fejler. | Svarbeskedens `message_id`, `topic`, `source`, `action: copy_code`. |
 | `chat_feedback_submitted` | En vurdering vælges eller ændres på et svar. | Svarbeskedens `message_id`, `topic`, `source`, `helpful`; `previous_helpful` ved ændring. Samme vurdering sendes ikke igen. |
 | `chat_reset` | **Ny samtale** vælges. | Den afsluttede samtales `conversation_id`. En ny samtale får et nyt ID. |
+| `theme_changed` | Lyst/mørkt tema skiftes. | `theme: light` eller `dark`. |
 | `token_type_selected` | En token vælges på `?slide=6`. | `selected_token`. |
 | `token_chain_selected` | En token vælges på `?slide=7`. | `selected_token`. |
 | `token_chain_demo_sent` | Demoens Send-knap på `?slide=7` vælges. | Ingen yderligere properties. |
@@ -60,7 +61,7 @@ SDK'ets eksisterende exception capture er fortsat aktiveret for ubehandlede fejl
 1. **Nybegynder:** Vælg “Forklar design tokens”, og spørg derefter om primitive og semantiske tokens. Kontrollér den almindelige forklaring, **Forklar enklere**, kodevisningen og feedback.
 2. **React-udvikler:** Vælg “Hjælp med en React-knap”, kopiér eksemplet, og kontrollér bekræftelsen. Vælg **Vis kode** på et ældre svar efter at have spurgt om et andet emne; kodeopfølgningen skal stadig handle om det ældre svar.
 3. **Designer:** Spørg, hvordan tokens navngives. Kontrollér, at svaret forklarer semantiske roller som `--color-action` frem for at fokusere på en bestemt farve.
-4. **Udvikler:** Spørg om mørkt tema og derefter fokus. Brug **Forklar enklere** på det ældre mørke-tema-svar; kontrollér, at emnet ikke skifter til fokus.
+4. **Udvikler:** Spørg om mørkt tema og derefter fokus. Brug **Forklar enklere** på det ældre mørke-tema-svar; kontrollér, at emnet ikke skifter til fokus. Skift også tema via sidehovedet, og kontrollér, at chatindholdet bevares.
 
 Kontrollér også, at ukendt kode får et begrænsningssvar, at **Ny samtale** nulstiller opfølgningskontekst og feedback, at gentagne klik på samme feedback kun giver ét event, og at appen stadig virker uden PostHog-variabler. Åbn desuden `?slide=6`, `?slide=7` og `?slide=8` for at kontrollere undervisningssiderne.
 
@@ -81,7 +82,7 @@ npm start
 
 I en eksisterende klon: Gem først eventuelle egne ændringer, kør `git fetch origin`, og skift derefter til `main`.
 
-Nedenstående beskriver det samlede undervisningsforløb. Øvelsernes temaskift er næste trin, ikke en funktion i denne version.
+Nedenstående beskriver det samlede undervisningsforløb. Chatten har nu en enkel manuel lys/mørk-kontakt; de øvrige tema- og tæthedsøvelser udføres fortsat som selvstændige aktiviteter.
 
 PBA Webudvikling · EAAA · 8.15–11.30
 

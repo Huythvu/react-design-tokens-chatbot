@@ -34,6 +34,7 @@ function eventProperties(message) {
 }
 
 export default function App() {
+  const [theme, setTheme] = useState('light');
   const [initialConversationId] = useState(() => crypto.randomUUID());
   const conversationIdRef = useRef(initialConversationId);
   const [messages, setMessages] = useState(() => [createWelcomeMessage(initialConversationId)]);
@@ -158,13 +159,24 @@ export default function App() {
     setMessages([createWelcomeMessage(nextConversationId)]);
   }
 
+  function toggleTheme() {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+    trackEvent('theme_changed', { theme: nextTheme });
+  }
+
   const hasUserMessage = messages.some(message => message.role === 'user');
 
-  return <main className="app">
+  return <main className="app" data-theme={theme}>
     <section className="chat ph-no-capture" aria-labelledby="chat-title">
       <header className="chat-header">
         <div><h1 id="chat-title">Token-chatten</h1><p>Fælles beslutninger. Sammenhængende design.</p></div>
         <div className="toolbar">
+          <Button
+            variant="secondary"
+            aria-pressed={theme === 'dark'}
+            onClick={toggleTheme}
+          >Skift til {theme === 'light' ? 'mørkt' : 'lyst'} tema</Button>
           <Button variant="secondary" onClick={resetChat}>Ny samtale</Button>
         </div>
       </header>
