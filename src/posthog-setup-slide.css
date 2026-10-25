@@ -1,0 +1,22 @@
+.posthog-guide {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+.posthog-guide > p,
+.posthog-guide > section {
+  max-width: 60rem;
+}
+.posthog-guide section {
+  margin-block: 2rem;
+}
+.posthog-guide section h2 {
+  margin-bottom: .5rem;
+}
+.posthog-guide pre {
+  padding: 1rem;
+  background: rgb(24 34 48 / 7%);
+  border-radius: .5rem;
+}
+.posthog-guide li {
+  padding-inline-start: .35rem;
+}
