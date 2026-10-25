@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Message, Composer } from './components.jsx';
 import { welcome, replyTo } from './replies.js';
+import posthog, { isPostHogConfigured } from './posthog.js';
+import { chatLog } from './posthog-logs.js';
 
 export default function App() {
   const [messages, setMessages] = useState([welcome]);
 
+  useEffect(() => {
+    chatLog.ready();
+  }, []);
+
   function send(text) {
+    if (isPostHogConfigured) posthog.capture('chat_message_sent');
+    chatLog.responseGenerated(messages.length + 2);
     setMessages(current => [...current,
       { id: crypto.randomUUID(), role: 'user', text },
       { id: crypto.randomUUID(), role: 'assistant', ...replyTo(text) }
     ]);
+  }
+
+  function resetChat() {
+    if (isPostHogConfigured) posthog.capture('chat_reset');
+    chatLog.conversationReset(Math.max(messages.length - 1, 0));
+    setMessages([welcome]);
   }
 
   return <main className="app">
@@ -17,7 +31,7 @@ export default function App() {
       <header className="chat-header">
         <div><h1 id="chat-title">Token-chatten</h1><p>Fælles beslutninger. Sammenhængende design.</p></div>
         <div className="toolbar">
-          <Button variant="secondary" onClick={() => setMessages([welcome])}>Ny samtale</Button>
+          <Button variant="secondary" onClick={resetChat}>Ny samtale</Button>
         </div>
       </header>
       <nav className="learning-links" aria-label="React-demonstrationer">

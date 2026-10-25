@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import './posthog.js';
 import App from './App.jsx';
 import TokenTypesSlide from './TokenTypesSlide.jsx';
 import TokenChainSlide from './TokenChainSlide.jsx';
